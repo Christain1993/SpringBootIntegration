@@ -1,18 +1,14 @@
 package com.bus365.root.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.bus365.root.dao.UserDao;
 import com.bus365.root.model.User;
 
-@Service
-public class UserService {
-	@Autowired
-	private UserDao userDao;
-	public User add(User user) {
-		userDao.save(user);
-		return user;
-	}
+public interface UserService {
+	public String add(User user);
+
+	public String find(Long id);
+
+	public String delete(Long id);
+
+	public String update(User user); 
 	
 }

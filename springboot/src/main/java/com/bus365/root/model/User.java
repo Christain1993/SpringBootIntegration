@@ -7,16 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "userinfo")
+@Table(name = "user")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
 	private Integer age;
-	private String address;
-	private String idnum;
-	private String phone;
+	private Integer addressid;
 	public Long getId() {
 		return id;
 	}
@@ -35,28 +33,17 @@ public class User {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	public String getAddress() {
-		return address;
+	public Integer getAddressid() {
+		return addressid;
 	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getIdnum() {
-		return idnum;
-	}
-	public void setIdnum(String idnum) {
-		this.idnum = idnum;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setAddressid(Integer addressid) {
+		this.addressid = addressid;
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", age=" + age + ", address=" + address + ", idnum=" + idnum
-				+ ", phone=" + phone + "]";
+		return "User [id=" + id + ", name=" + name + ", age=" + age + ", addressid=" + addressid + "]";
 	}
+	
+	
 	
 }
