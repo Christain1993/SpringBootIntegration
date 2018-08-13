@@ -3,10 +3,10 @@ package com.bus365.root.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bus365.root.Constants;
 import com.bus365.root.dao.UserDao;
 import com.bus365.root.model.User;
 import com.bus365.root.service.UserService;
+import com.bus365.root.utils.Constants;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -58,6 +58,24 @@ public class UserServiceImpl implements UserService {
 			return Constants.FAIL;
 		}
 		return Constants.SUCCESS;
+	}
+
+	@Override
+	public User findByName(String name) {
+		User user = userDao.findByName(name);
+		return user;
+	}
+
+	@Override
+	public User findByNameAndAge(String name, Integer age) {
+		User user = userDao.findByNameAndAge(name,age);
+		return user;
+	}
+
+	@Override
+	public User findByNameOrAge(String name, Integer age) {
+		User user = userDao.findByNameOrAge(name,age);
+		return user;
 	}
 
 }

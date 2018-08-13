@@ -1,6 +1,7 @@
 package com.bus365.root.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +33,20 @@ public class UserController {
 	public String deleteuser(Long id) {
 		String delete = userService.delete(id);
 		return delete;
+	}
+	@RequestMapping(value = "/user/{name}", method = { RequestMethod.GET })
+	public String findUserByName(@PathVariable String name) {
+		User user = userService.findByName(name);
+		return user==null?null:user.toString();
+	}
+	@RequestMapping(value = "/user/{name}/{age}", method = { RequestMethod.GET })
+	public String findUserByNameAndAge(@PathVariable String name,@PathVariable Integer age) {
+		User user = userService.findByNameAndAge(name,age);
+		return user==null?null:user.toString();
+	}
+	@RequestMapping(value = "/findbynameorage/{name}/{age}", method = { RequestMethod.GET })
+	public String findUserByNameOrAge(@PathVariable String name,@PathVariable Integer age) {
+		User user = userService.findByNameOrAge(name,age);
+		return user==null?null:user.toString();
 	}
 }

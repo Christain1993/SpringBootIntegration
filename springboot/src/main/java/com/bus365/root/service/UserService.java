@@ -9,6 +9,12 @@ public interface UserService {
 
 	public String delete(Long id);
 
-	public String update(User user); 
+	public String update(User user);
+
+	public User findByName(String name);
+
+	public User findByNameAndAge(String name, Integer age);
+
+	public User findByNameOrAge(String name, Integer age); 
 	
 }
