@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 	public String add(User user) {
 		User findOne = null;
 		try {
-			findOne = userDao.findOne(user.getId());
+			findOne = userDao.getOne(user.getId());
 		} catch (Exception e) {
 		}
 		if(findOne!=null) {
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String find(Long id) {
 		try {
-			userDao.findOne(id);
+			userDao.getOne(id);
 		} catch (Exception e) {
 			return Constants.FAIL;
 		}
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String delete(Long id) {
 		try {
-			userDao.delete(id);
+			userDao.deleteById(id);
 		} catch (Exception e) {
 			return Constants.FAIL;
 		}
