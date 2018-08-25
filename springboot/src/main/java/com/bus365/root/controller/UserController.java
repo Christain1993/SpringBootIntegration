@@ -1,11 +1,15 @@
 package com.bus365.root.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bus365.root.model.Address;
 import com.bus365.root.model.User;
 import com.bus365.root.service.UserService;
 
@@ -48,5 +52,11 @@ public class UserController {
 	public String findUserByNameOrAge(@PathVariable String name,@PathVariable Integer age) {
 		User user = userService.findByNameOrAge(name,age);
 		return user==null?null:user.toString();
+	}
+	@ResponseBody
+	@RequestMapping(value = "/user/address/get/{id}" ,method =RequestMethod.GET)
+	public List<Object[]> getAddressByid(@PathVariable(value = "id") Long id) {
+		List<Object[]> userWithAddrByid = userService.getUserWithAddrByid(id);
+		return userWithAddrByid;
 	}
 }

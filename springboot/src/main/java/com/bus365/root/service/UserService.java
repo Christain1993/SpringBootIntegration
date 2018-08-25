@@ -1,5 +1,7 @@
 package com.bus365.root.service;
 
+import java.util.List;
+
 import com.bus365.root.model.User;
 
 public interface UserService {
@@ -16,5 +18,9 @@ public interface UserService {
 	public User findByNameAndAge(String name, Integer age);
 
 	public User findByNameOrAge(String name, Integer age); 
+	
+	public List<User> getlist();
+	
+	public List<Object[]> getUserWithAddrByid(Long id);
 	
 }
