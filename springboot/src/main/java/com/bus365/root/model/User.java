@@ -1,5 +1,7 @@
 package com.bus365.root.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable{
+	private static final long serialVersionUID = -3042123710820596182L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

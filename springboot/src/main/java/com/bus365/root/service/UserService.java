@@ -23,4 +23,8 @@ public interface UserService {
 	
 	public List<Object[]> getUserWithAddrByid(Long id);
 	
+	public List<User> getFromMongo(String name);
+	
+	public User saveToMongo(User user);
+	
 }

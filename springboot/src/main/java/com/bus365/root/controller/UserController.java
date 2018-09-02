@@ -23,6 +23,17 @@ public class UserController {
 		String result = userService.add(user);
 		return result;
 	}
+	
+	@RequestMapping(value = "/usermongo", method = { RequestMethod.PUT })
+	public String adduserToMongo(User user) {
+		User saveToMongo = userService.saveToMongo(user);
+		return saveToMongo.toString();
+	}
+	@RequestMapping(value = "/usermongo", method = { RequestMethod.GET })
+	public String getFromMongo(String name) {
+		List<User> fromMongo = userService.getFromMongo(name);
+		return fromMongo.toString();
+	}
 	@RequestMapping(value = "/user", method = { RequestMethod.GET })
 	public String finduser(Long id) {
 		String find = userService.find(id);
@@ -41,7 +52,7 @@ public class UserController {
 	@RequestMapping(value = "/user/{name}", method = { RequestMethod.GET })
 	public String findUserByName(@PathVariable String name) {
 		User user = userService.findByName(name);
-		return user==null?null:user.toString();
+		return user==null?null:user.toString(); 
 	}
 	@RequestMapping(value = "/user/{name}/{age}", method = { RequestMethod.GET })
 	public String findUserByNameAndAge(@PathVariable String name,@PathVariable Integer age) {
