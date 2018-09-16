@@ -14,6 +14,7 @@ import com.bus365.root.service.CityService;
 
 @RestController
 public class CityController {
+	
 	@Autowired
 	CityService cityService;
 	@RequestMapping(value = "/city" ,method= {RequestMethod.PUT})
